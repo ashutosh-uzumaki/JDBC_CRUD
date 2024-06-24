@@ -30,6 +30,8 @@ public class App
                     System.out.println("Id "+result.getInt("id")+" Name "+result.getString("name")+" Phone Number "+result.getString("phone_number")
                             +" Email Address "+result.getString("email_id"));
                 }
+                result.close();
+                statement.close();
             }catch(SQLException e){
                 System.out.println(e.getMessage());
             }
@@ -45,6 +47,8 @@ public class App
                     +" PHONE NUMBER: "+resultSet.getString("phone_number")
                     +" EMAIL ID: "+resultSet.getString("email_id"));
                 }
+                resultSet.close();
+                statement.close();
             }catch(SQLException e){
                 System.out.println(e.getMessage());
             }
@@ -60,9 +64,13 @@ public class App
                             +" PHONE NUMBER: "+resultSet.getString("phone_number")
                             +" EMAIL ID: "+resultSet.getString("email_id"));
                 }
+                resultSet.close();
+                statement.close();
             }catch(SQLException e){
                 System.out.println(e.getMessage());
             }
+            connection.close();
+            System.out.println("Connection to DB successfully closed");
         }catch(SQLException e){
             System.out.println("Failed to connect to DB!!!!");
         }
